@@ -1,0 +1,10 @@
+{
+  "files.exclude": {
+    "obj": true,
+    "bin": true,
+    "node_modules": true
+  },
+  "files.associations": {
+    "**/azure-pipelines.yml": "azure-pipelines"
+  }
+}

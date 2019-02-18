@@ -1,0 +1,21 @@
+{
+    "extension": [
+        ".ts",
+        ".tsx"
+    ],
+    "exclude": [
+        "__tests__",
+        "**/model",
+        "**/types.ts",
+        "**/*.config.ts",
+        "**/*.d.ts"
+    ],
+    "reporter": [
+        "cobertura",
+        "html",
+        "text",
+        "text-summary"
+    ],
+    "report-dir": "./dist/__tests__/coverage",
+    "temp-directory": "./dist/__tests__/coverage/.nyc_output"
+}
