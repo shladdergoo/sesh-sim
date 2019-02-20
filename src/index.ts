@@ -1,3 +1,3 @@
 export { types as Types } from './types';
 
-export * from './model/session';
+export * from './session';

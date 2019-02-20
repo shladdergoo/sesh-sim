@@ -6,5 +6,6 @@
   },
   "files.associations": {
     "**/azure-pipelines.yml": "azure-pipelines"
-  }
+  },
+  "typescript.tsdk": "node_modules\\typescript\\lib"
 }
