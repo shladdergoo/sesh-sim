@@ -1,6 +1,6 @@
 import Drinkers from './model/drinkers';
 
-import IArrivalEvaluator from './interface/iArrivalEvaluator';
+import IArrivalEvaluator from './interface/iarrivalevaluator';
 
 export class RegularArrivalEvaluator implements IArrivalEvaluator {
   public evaluate(
