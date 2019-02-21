@@ -20,6 +20,7 @@
     "prebuild": "npm run clean && npm run format && npm run lint && echo Using TypeScript && tsc --version",
     "postbuild": "copyfiles -u 1 src/data.json src/bin/sesh-sim dist/src && copyfiles package.json LICENSE README.md dist/src",
     "build": "tsc --pretty",
+    "compile": "tsc",
     "pretest": "npm run build",
     "test": "nyc mocha --require ts-node/register --require source-map-support/register --recursive ./__tests__/_loadAllFilesForCoverage.js ./__tests__/**/*.ts --reporter mocha-multi-reporters --reporter-options configFile=__tests__/reporter-config.json",
     "test-ci": "nyc mocha --require ts-node/register --require source-map-support/register --recursive ./__tests__/_loadAllFilesForCoverage.js ./__tests__/**/*.ts --reporter mocha-multi-reporters --reporter-options configFile=__tests__/reporter-config.json"

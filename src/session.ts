@@ -51,8 +51,8 @@ export class Session extends events.EventEmitter {
   }
 
   public start(): void {
-    for (let iteration = 0; iteration < this.length; iteration++) {
-      this.emit('interval', iteration);
+    for (let iteration = 1; iteration <= this.length; iteration++) {
+      this.emit('iteration', iteration);
 
       if (
         this.arrivalEvaluator.evaluate(

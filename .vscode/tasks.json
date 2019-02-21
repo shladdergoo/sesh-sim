@@ -13,6 +13,13 @@
     },
     {
       "type": "npm",
+      "label": "compile",
+      "script": "compile",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "type": "npm",
       "label": "test",
       "script": "test",
       "group": {
