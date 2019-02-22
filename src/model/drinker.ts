@@ -5,7 +5,7 @@ export class Drinker {
   public newArrival: boolean = true;
   public pintsConsumed: number;
   public pintsBought: number;
-  public currentPintPercent: number = 100;
+  public currentPintPercent: number;
   public arrivalTime: Date = new Date();
 
   public drink(): void {

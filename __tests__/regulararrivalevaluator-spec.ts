@@ -1,8 +1,6 @@
 import 'mocha';
 import 'mocha-sinon';
 import * as chai from 'chai';
-// import * as chaiAsPromised from 'chai-as-promised';
-// import * as sinon from 'sinon';
 
 import IArrivalEvaluator from '../src/interface/iarrivalevaluator';
 import RegularArrivalEvaluator from '../src/regulararrivalevaluator';
