@@ -10,7 +10,7 @@ import Drinkers from '../src/model/drinkers';
 
 const expect = chai.expect;
 
-describe('ArrivalEvaluator', () => {
+describe('RegularArrivalEvaluator', () => {
   describe('evaluate', () => {
     const sut: IArrivalEvaluator = new RegularArrivalEvaluator();
 

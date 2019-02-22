@@ -1,6 +1,7 @@
 import IArrivalEvaluator from './interface/iarrivalevaluator';
 import IConsumptionCalculator from './interface/iconsumptioncalculator';
 import IRoundEvaluator from './interface/iroundevaluator';
+import IRoundTrigger from './interface/iroundtrigger';
 
 import ConsumptionCalculator from './consumptioncalculator';
 import RegularArrivalEvaluator from './regulararrivalevaluator';
@@ -8,7 +9,8 @@ import RoundEvaluator from './roundevaluator';
 import Session from './session';
 
 const arrivalEvaluator: IArrivalEvaluator = new RegularArrivalEvaluator();
-const roundEvaluator: IRoundEvaluator = new RoundEvaluator();
+const roundTriggers: IRoundTrigger[] = new Array<IRoundTrigger>();
+const roundEvaluator: IRoundEvaluator = new RoundEvaluator(roundTriggers);
 const consumptionCalculator: IConsumptionCalculator = new ConsumptionCalculator();
 
 const session: Session = new Session(

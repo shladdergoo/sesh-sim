@@ -6,6 +6,7 @@ export class Drinker {
   public pintsConsumed: number;
   public pintsBought: number;
   public currentPintPercent: number = 100;
+  public arrivalTime: Date = new Date();
 
   public drink(): void {
     if (this.currentPintPercent === 0) {
