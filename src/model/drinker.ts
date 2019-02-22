@@ -5,8 +5,9 @@ export class Drinker {
   public newArrival: boolean = true;
   public pintsConsumed: number;
   public pintsBought: number;
-  public currentPintPercent: number;
+  public currentPintPercent: number = 0;
   public arrivalTime: Date = new Date();
+  public lastRoundIteration: number = 0;
 
   public drink(): void {
     if (this.currentPintPercent === 0) {
