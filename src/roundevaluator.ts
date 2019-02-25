@@ -13,11 +13,17 @@ export class RoundEvaluator implements IRoundEvaluator {
     ).length;
   }
 
-  private static UpdateDrinks(drinkers: Drinkers): void {
+  private static UpdateReceivedDrinks(
+    drinkers: Drinkers,
+    roundPurchaser: number
+  ): void {
     drinkers.members
       .filter((d) => d.currentPintPercent < RoundEvaluator.lowDrinkThreshold)
       .forEach((d) => {
         d.currentPintPercent = 100;
+        if (roundPurchaser !== d.id) {
+          d.drinksReceived++;
+        }
       });
   }
 
@@ -39,7 +45,7 @@ export class RoundEvaluator implements IRoundEvaluator {
         drinkers.getById(roundPurchaser).lastRoundIteration = iteration;
         const purchasedDrinks = RoundEvaluator.GetDrinksPurchased(drinkers);
         drinkers.getById(roundPurchaser).drinksBought += purchasedDrinks;
-        RoundEvaluator.UpdateDrinks(drinkers);
+        RoundEvaluator.UpdateReceivedDrinks(drinkers, roundPurchaser);
 
         return new RoundResult(true, roundPurchaser, purchasedDrinks);
       }

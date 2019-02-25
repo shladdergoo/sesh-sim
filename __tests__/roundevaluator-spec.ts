@@ -133,6 +133,29 @@ describe('RoundEvaluator', () => {
 
       expect(drinkers.members[1].drinksBought).to.equal(4);
     });
+
+    it('should update drinksReceived for the recipients when round triggered', () => {
+      triggerMock.getPurchaser = sinon.stub().returns(2);
+      const triggers: IRoundTrigger[] = new Array<IRoundTrigger>();
+      triggers.push(triggerMock);
+
+      const drinkers: Drinkers = getTestDrinkers(5);
+      drinkers.members[0].currentPintPercent = 10;
+      drinkers.members[1].currentPintPercent = 0;
+      drinkers.members[2].currentPintPercent = 95;
+      drinkers.members[3].currentPintPercent = 9;
+      drinkers.members[4].currentPintPercent = 5;
+
+      const sut: IRoundEvaluator = new RoundEvaluator(triggers);
+
+      const result: RoundResult = sut.evaluate(drinkers, 99);
+
+      expect(drinkers.members[0].drinksReceived).to.equal(1);
+      expect(drinkers.members[1].drinksReceived).to.equal(0);
+      expect(drinkers.members[2].drinksReceived).to.equal(0);
+      expect(drinkers.members[3].drinksReceived).to.equal(1);
+      expect(drinkers.members[4].drinksReceived).to.equal(1);
+    });
   });
 });
 

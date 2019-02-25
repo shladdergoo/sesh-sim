@@ -3,7 +3,7 @@ export class Drinker {
 
   public id: number;
   public newArrival: boolean = true;
-  public drinksConsumed: number = 0;
+  public drinksReceived: number = 0;
   public drinksBought: number = 0;
   public currentPintPercent: number = 0;
   public arrivalTime: Date = new Date();
