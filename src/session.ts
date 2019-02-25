@@ -65,7 +65,8 @@ export class Session extends events.EventEmitter {
       }
 
       const roundResult: RoundResult = this.roundEvaluator.evaluate(
-        this.drinkers
+        this.drinkers,
+        iteration
       );
       if (roundResult !== null) {
         this.emit('round', roundResult);

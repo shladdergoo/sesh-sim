@@ -24,6 +24,10 @@ export class Drinkers {
 
     return this;
   }
+
+  public getById(id: number): Drinker {
+    return this.drinkers.filter((d) => d.id === id)[0];
+  }
 }
 
 export default Drinkers;
