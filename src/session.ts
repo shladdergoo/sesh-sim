@@ -72,11 +72,6 @@ export class Session extends events.EventEmitter {
         this.emit('round', roundResult);
       }
 
-      const consumptionResult: ConsumptionResult = this.consumptionCalculator.calculate(
-        this.drinkers
-      );
-      this.emit('consumption', consumptionResult);
-
       sleep(this.pause);
     }
 

@@ -2,7 +2,7 @@ import ConsumptionResult from '../model/consumptionresult';
 import Drinkers from '../model/drinkers';
 
 export interface IConsumptionCalculator {
-  calculate(drinkers: Drinkers): ConsumptionResult;
+  calculate(currentDrinkLevel: number, drinkerIteration: number): number;
 }
 
 export default IConsumptionCalculator;

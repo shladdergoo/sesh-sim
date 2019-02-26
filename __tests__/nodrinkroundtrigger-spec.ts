@@ -17,12 +17,12 @@ describe('NoDrinkRoundTrigger', () => {
     it('should return 0 if everyone has a drink', () => {
       let drinker: Drinker = new Drinker();
       drinker.id = 1;
-      drinker.currentPintPercent = 80;
+      drinker.currentDrinkLevel = 80;
       const drinkers: Drinkers = new Drinkers().add(drinker);
 
       drinker = new Drinker();
       drinker.id = 2;
-      drinker.currentPintPercent = 90;
+      drinker.currentDrinkLevel = 90;
       drinkers.add(drinker);
 
       const result = sut.getPurchaser(drinkers);
@@ -33,7 +33,7 @@ describe('NoDrinkRoundTrigger', () => {
     it('should return the drinker id if a drinker does not have a drink', () => {
       let drinker: Drinker = new Drinker();
       drinker.id = 1;
-      drinker.currentPintPercent = 80;
+      drinker.currentDrinkLevel = 80;
       const drinkers: Drinkers = new Drinkers().add(drinker);
 
       drinker = new Drinker();
@@ -49,7 +49,7 @@ describe('NoDrinkRoundTrigger', () => {
       let drinker: Drinker = new Drinker();
       drinker.id = 1;
       drinker.lastRoundIteration = 1;
-      drinker.currentPintPercent = 80;
+      drinker.currentDrinkLevel = 80;
       const drinkers: Drinkers = new Drinkers().add(drinker);
 
       drinker = new Drinker();

@@ -65,11 +65,11 @@ describe('RoundEvaluator', () => {
       triggers.push(triggerMock);
 
       const drinkers: Drinkers = getTestDrinkers(5);
-      drinkers.members[0].currentPintPercent = 10;
-      drinkers.members[1].currentPintPercent = 0;
-      drinkers.members[2].currentPintPercent = 95;
-      drinkers.members[3].currentPintPercent = 9;
-      drinkers.members[4].currentPintPercent = 5;
+      drinkers.members[0].currentDrinkLevel = 10;
+      drinkers.members[1].currentDrinkLevel = 0;
+      drinkers.members[2].currentDrinkLevel = 95;
+      drinkers.members[3].currentDrinkLevel = 9;
+      drinkers.members[4].currentDrinkLevel = 5;
 
       const sut: IRoundEvaluator = new RoundEvaluator(triggers);
 
@@ -84,21 +84,21 @@ describe('RoundEvaluator', () => {
       triggers.push(triggerMock);
 
       const drinkers: Drinkers = getTestDrinkers(5);
-      drinkers.members[0].currentPintPercent = 10;
-      drinkers.members[1].currentPintPercent = 0;
-      drinkers.members[2].currentPintPercent = 95;
-      drinkers.members[3].currentPintPercent = 9;
-      drinkers.members[4].currentPintPercent = 5;
+      drinkers.members[0].currentDrinkLevel = 10;
+      drinkers.members[1].currentDrinkLevel = 0;
+      drinkers.members[2].currentDrinkLevel = 95;
+      drinkers.members[3].currentDrinkLevel = 9;
+      drinkers.members[4].currentDrinkLevel = 5;
 
       const sut: IRoundEvaluator = new RoundEvaluator(triggers);
 
       const result: RoundResult = sut.evaluate(drinkers, 99);
 
-      expect(drinkers.members[0].currentPintPercent).to.equal(100);
-      expect(drinkers.members[1].currentPintPercent).to.equal(100);
-      expect(drinkers.members[2].currentPintPercent).to.equal(95);
-      expect(drinkers.members[3].currentPintPercent).to.equal(100);
-      expect(drinkers.members[4].currentPintPercent).to.equal(100);
+      expect(drinkers.members[0].currentDrinkLevel).to.equal(100);
+      expect(drinkers.members[1].currentDrinkLevel).to.equal(100);
+      expect(drinkers.members[2].currentDrinkLevel).to.equal(95);
+      expect(drinkers.members[3].currentDrinkLevel).to.equal(100);
+      expect(drinkers.members[4].currentDrinkLevel).to.equal(100);
     });
 
     it('should update lastRoundIteration for purchaser when round triggered', () => {
@@ -121,11 +121,11 @@ describe('RoundEvaluator', () => {
       triggers.push(triggerMock);
 
       const drinkers: Drinkers = getTestDrinkers(5);
-      drinkers.members[0].currentPintPercent = 10;
-      drinkers.members[1].currentPintPercent = 0;
-      drinkers.members[2].currentPintPercent = 95;
-      drinkers.members[3].currentPintPercent = 9;
-      drinkers.members[4].currentPintPercent = 5;
+      drinkers.members[0].currentDrinkLevel = 10;
+      drinkers.members[1].currentDrinkLevel = 0;
+      drinkers.members[2].currentDrinkLevel = 95;
+      drinkers.members[3].currentDrinkLevel = 9;
+      drinkers.members[4].currentDrinkLevel = 5;
 
       const sut: IRoundEvaluator = new RoundEvaluator(triggers);
 
@@ -140,11 +140,11 @@ describe('RoundEvaluator', () => {
       triggers.push(triggerMock);
 
       const drinkers: Drinkers = getTestDrinkers(5);
-      drinkers.members[0].currentPintPercent = 10;
-      drinkers.members[1].currentPintPercent = 0;
-      drinkers.members[2].currentPintPercent = 95;
-      drinkers.members[3].currentPintPercent = 9;
-      drinkers.members[4].currentPintPercent = 5;
+      drinkers.members[0].currentDrinkLevel = 10;
+      drinkers.members[1].currentDrinkLevel = 0;
+      drinkers.members[2].currentDrinkLevel = 95;
+      drinkers.members[3].currentDrinkLevel = 9;
+      drinkers.members[4].currentDrinkLevel = 5;
 
       const sut: IRoundEvaluator = new RoundEvaluator(triggers);
 

@@ -3,7 +3,7 @@ import IConsumptionCalculator from './interface/iconsumptioncalculator';
 import IRoundEvaluator from './interface/iroundevaluator';
 import IRoundTrigger from './interface/iroundtrigger';
 
-import ConsumptionCalculator from './consumptioncalculator';
+import ConsumptionCalculator from './decreasingconsumptioncalculator';
 import NewArrivalRoundTrigger from './newarrivalroundtrigger';
 import NoDrinkRoundTrigger from './nodrinkroundtrigger';
 import RegularArrivalEvaluator from './regulararrivalevaluator';

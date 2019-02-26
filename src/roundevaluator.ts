@@ -9,7 +9,7 @@ export class RoundEvaluator implements IRoundEvaluator {
 
   private static GetDrinksPurchased(drinkers: Drinkers): number {
     return drinkers.members.filter(
-      (d) => d.currentPintPercent < RoundEvaluator.lowDrinkThreshold
+      (d) => d.currentDrinkLevel < RoundEvaluator.lowDrinkThreshold
     ).length;
   }
 
@@ -18,9 +18,9 @@ export class RoundEvaluator implements IRoundEvaluator {
     roundPurchaser: number
   ): void {
     drinkers.members
-      .filter((d) => d.currentPintPercent < RoundEvaluator.lowDrinkThreshold)
+      .filter((d) => d.currentDrinkLevel < RoundEvaluator.lowDrinkThreshold)
       .forEach((d) => {
-        d.currentPintPercent = 100;
+        d.currentDrinkLevel = 100;
         if (roundPurchaser !== d.id) {
           d.drinksReceived++;
         }
