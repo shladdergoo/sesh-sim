@@ -40,5 +40,15 @@ describe('Drinker', () => {
 
       expect((<sinon.SinonStub>calculatorMock.calculate).called).to.be.false;
     });
+
+    it('should update drink level', () => {
+      calculatorMock.calculate = sinon.stub().returns(80);
+
+      const sut = new Drinker(calculatorMock);
+      sut.currentDrinkLevel = 100;
+      sut.drink();
+
+      expect(sut.currentDrinkLevel).to.equal(80);
+    });
   });
 });
