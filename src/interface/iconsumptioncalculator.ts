@@ -1,4 +1,3 @@
-import ConsumptionResult from '../model/consumptionresult';
 import Drinkers from '../model/drinkers';
 
 export interface IConsumptionCalculator {
