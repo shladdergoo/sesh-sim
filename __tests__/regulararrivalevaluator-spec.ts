@@ -12,7 +12,7 @@ describe('RegularArrivalEvaluator', () => {
   describe('evaluate', () => {
     const sut: IArrivalEvaluator = new RegularArrivalEvaluator();
 
-    it('should throw an exception when drinkers in undefined', () => {
+    it('should throw an exception when drinkers is undefined', () => {
       expect(() => {
         let drinkers: Drinkers;
         sut.evaluate(drinkers, 0, 1);
