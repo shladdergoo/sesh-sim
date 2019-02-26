@@ -1,3 +1,5 @@
+import IConsumptionCalculator from '../interface/iconsumptioncalculator';
+
 export class Drinker {
   private static readonly drinksPerPint: number = 10;
 
@@ -6,16 +8,28 @@ export class Drinker {
   public drinksReceived: number = 0;
   public drinksBought: number = 0;
   public currentDrinkLevel: number = 0;
-  public arrivalTime: Date = new Date();
+  public arrivalIteration: number = 0;
   public lastRoundIteration: number = 0;
+
+  private readonly consumptionCalculator: IConsumptionCalculator;
+
+  public constructor(consumptionCalculator: IConsumptionCalculator) {
+    if (consumptionCalculator === undefined) {
+      throw new ReferenceError('consumptionCalculator is undefined');
+    }
+
+    this.consumptionCalculator = consumptionCalculator;
+  }
 
   public drink(): void {
     if (this.currentDrinkLevel === 0) {
       return;
     }
 
-    this.currentDrinkLevel =
-      this.currentDrinkLevel - 100 / Drinker.drinksPerPint;
+    this.currentDrinkLevel = this.consumptionCalculator.calculate(
+      this.currentDrinkLevel,
+      this.arrivalIteration
+    );
   }
 }
 

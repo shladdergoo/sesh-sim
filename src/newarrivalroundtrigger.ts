@@ -8,7 +8,7 @@ export class NewArrivalRoundTrigger implements IRoundTrigger {
     const newArriver: Drinker = drinkers.members
       .filter((d) => d.newArrival === true)
       .sort((a, b) => {
-        return b.arrivalTime.valueOf() - a.arrivalTime.valueOf();
+        return b.arrivalIteration - a.arrivalIteration;
       })[0];
 
     if (newArriver === undefined) {

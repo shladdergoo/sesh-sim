@@ -3,6 +3,7 @@ import 'mocha-sinon';
 import * as chai from 'chai';
 import * as sinon from 'sinon';
 
+import IConsumptionCalculator from '../src/interface/iconsumptioncalculator';
 import IRoundEvaluator from '../src/interface/iroundevaluator';
 import IRoundTrigger from '../src/interface/iroundtrigger';
 
@@ -163,7 +164,7 @@ function getTestDrinkers(numOfDrinkers: number): Drinkers {
   const drinkers: Drinkers = new Drinkers();
 
   for (let i = 0; i < numOfDrinkers; i++) {
-    const drinker = new Drinker();
+    const drinker = new Drinker(<IConsumptionCalculator>{});
     drinker.id = i + 1;
     drinkers.members.push(drinker);
   }

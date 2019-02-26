@@ -1,3 +1,4 @@
+import DecreasingConsumptionCalculator from '../decreasingconsumptioncalculator';
 import Drinker from './drinker';
 
 export class Drinkers {
@@ -16,7 +17,7 @@ export class Drinkers {
 
   public add(drinker?: Drinker): Drinkers {
     if (drinker === undefined) {
-      drinker = new Drinker();
+      drinker = new Drinker(new DecreasingConsumptionCalculator());
       drinker.id = this.drinkers.length + 1;
     }
 
