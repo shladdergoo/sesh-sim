@@ -27,7 +27,7 @@ describe('Drinker', () => {
 
       const sut = new Drinker(calculatorMock);
       sut.currentDrinkLevel = 100;
-      sut.drink();
+      sut.drink(1);
 
       expect((<sinon.SinonStub>calculatorMock.calculate).calledOnce).to.be.true;
     });
@@ -36,7 +36,7 @@ describe('Drinker', () => {
       calculatorMock.calculate = sinon.stub().returns(80);
 
       const sut = new Drinker(calculatorMock);
-      sut.drink();
+      sut.drink(99);
 
       expect((<sinon.SinonStub>calculatorMock.calculate).called).to.be.false;
     });
@@ -46,7 +46,7 @@ describe('Drinker', () => {
 
       const sut = new Drinker(calculatorMock);
       sut.currentDrinkLevel = 100;
-      sut.drink();
+      sut.drink(1);
 
       expect(sut.currentDrinkLevel).to.equal(80);
     });
