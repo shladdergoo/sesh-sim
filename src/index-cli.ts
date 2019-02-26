@@ -26,10 +26,16 @@ const session: Session = new Session(
   consumptionCalculator
 );
 
-session.on('iteration', (iteration) => {
-  console.log(`iteration: ${iteration}`);
+session.on('iteration', (iteration, drinkers) => {
+  console.log(`iteration: ${iteration}\n${drinkers.toString()}`);
+});
+
+session.on('arrival', (id) => {
+  console.log(`arrival: id: ${id}`);
+});
+
+session.on('round', (roundResult) => {
+  console.log(`round: ${roundResult.toString()}`);
 });
 
 session.start();
-
-console.log('hello world');

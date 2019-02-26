@@ -53,7 +53,7 @@ export class Session extends events.EventEmitter {
 
   public start(): void {
     for (let iteration = 1; iteration <= this.length; iteration++) {
-      this.emit('iteration', iteration);
+      this.emit('iteration', iteration, this.drinkers);
 
       if (
         this.arrivalEvaluator.evaluate(
@@ -66,15 +66,21 @@ export class Session extends events.EventEmitter {
         drinker.id = this.drinkers.members.length + 1;
         drinker.arrivalIteration = iteration;
         this.drinkers.add(drinker);
+        this.emit('arrival', drinker.id);
       }
 
       const roundResult: RoundResult = this.roundEvaluator.evaluate(
         this.drinkers,
         iteration
       );
-      if (roundResult !== null) {
+      if (roundResult.newRound === true) {
+        this.drinkers.getById(roundResult.roundPurchaser).newArrival = false;
         this.emit('round', roundResult);
       }
+
+      this.drinkers.members.forEach((d) => {
+        d.drink(iteration);
+      });
 
       sleep(this.pause);
     }
