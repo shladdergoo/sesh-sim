@@ -27,6 +27,17 @@ export class Drinkers {
   public getById(id: number): Drinker {
     return this.drinkers.filter((d) => d.id === id)[0];
   }
+
+  public toString(): string {
+    let result: string = 'drinkers: ';
+
+    this.drinkers.forEach((d) => {
+      result += d.toString();
+      result += '\n';
+    });
+
+    return result;
+  }
 }
 
 export default Drinkers;

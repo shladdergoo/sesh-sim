@@ -24,6 +24,12 @@ export class RoundResult {
     this._roundPurchaser = roundPurchaser;
     this._purchasedDrinks = purchasedDrinks;
   }
+
+  public toString(): string {
+    return `boughtBy: ${this.roundPurchaser}, purchasedDrinks: ${
+      this.purchasedDrinks
+    }`;
+  }
 }
 
 export default RoundResult;

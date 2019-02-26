@@ -21,15 +21,25 @@ export class Drinker {
     this.consumptionCalculator = consumptionCalculator;
   }
 
-  public drink(): void {
+  public drink(iteration: number): void {
     if (this.currentDrinkLevel === 0) {
       return;
     }
 
     this.currentDrinkLevel = this.consumptionCalculator.calculate(
       this.currentDrinkLevel,
-      this.arrivalIteration
+      iteration - this.arrivalIteration + 1
     );
+  }
+
+  public toString(): string {
+    let result: string = `id: ${this.id}, drinksBought: ${
+      this.drinksBought
+    }, drinksReceived: ${this.drinksReceived}, currentDrinkLevel: ${
+      this.currentDrinkLevel
+    }`;
+
+    return result;
   }
 }
 
