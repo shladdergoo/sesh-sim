@@ -8,7 +8,7 @@ export class RegularArrivalEvaluator implements IArrivalEvaluator {
     iteration: number,
     maxDrinkers: number
   ): boolean {
-    const iterationsPerArrival: number = 10;
+    const iterationsPerArrival: number = 5;
 
     if (drinkers === undefined) {
       throw new ReferenceError('drinkers undefined');
