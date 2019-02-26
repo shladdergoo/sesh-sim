@@ -3,7 +3,8 @@ import * as events from 'events';
 import IArrivalEvaluator from './interface/iarrivalevaluator';
 import IConsumptionCalculator from './interface/iconsumptioncalculator';
 import IRoundEvaluator from './interface/iroundevaluator';
-import ConsumptionResult from './model/consumptionresult';
+
+import Drinker from './model/drinker';
 import Drinkers from './model/drinkers';
 import RoundResult from './model/roundresult';
 
@@ -61,7 +62,10 @@ export class Session extends events.EventEmitter {
           this.participants
         )
       ) {
-        this.drinkers.add();
+        const drinker: Drinker = new Drinker(this.consumptionCalculator);
+        drinker.id = this.drinkers.members.length + 1;
+        drinker.arrivalIteration = iteration;
+        this.drinkers.add(drinker);
       }
 
       const roundResult: RoundResult = this.roundEvaluator.evaluate(

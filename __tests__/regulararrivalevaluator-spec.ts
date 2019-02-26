@@ -3,8 +3,11 @@ import 'mocha-sinon';
 import * as chai from 'chai';
 
 import IArrivalEvaluator from '../src/interface/iarrivalevaluator';
-import RegularArrivalEvaluator from '../src/regulararrivalevaluator';
+import IConsumptionCalculator from '../src/interface/iconsumptioncalculator';
+
 import Drinkers from '../src/model/drinkers';
+import Drinker from '../src/model/drinker';
+import RegularArrivalEvaluator from '../src/regulararrivalevaluator';
 
 const expect = chai.expect;
 
@@ -26,7 +29,12 @@ describe('RegularArrivalEvaluator', () => {
     });
 
     it('should return false when max drinkers already reached', () => {
-      const result: boolean = sut.evaluate(new Drinkers().add(), 1, 1);
+      const drinker: Drinker = new Drinker(<IConsumptionCalculator>{});
+      drinker.id = 1;
+      drinker.newArrival = false;
+      const drinkers: Drinkers = new Drinkers().add(drinker);
+
+      const result: boolean = sut.evaluate(drinkers, 1, 1);
 
       expect(result).to.be.false;
     });

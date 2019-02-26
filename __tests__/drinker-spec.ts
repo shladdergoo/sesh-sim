@@ -4,13 +4,8 @@ import * as chai from 'chai';
 import * as sinon from 'sinon';
 
 import IConsumptionCalculator from '../src/interface/iconsumptioncalculator';
-import IRoundEvaluator from '../src/interface/iroundevaluator';
-import IRoundTrigger from '../src/interface/iroundtrigger';
 
 import Drinker from '../src/model/drinker';
-import Drinkers from '../src/model/drinkers';
-import RoundEvaluator from '../src/roundevaluator';
-import RoundResult from '../src/model/roundresult';
 
 const expect = chai.expect;
 

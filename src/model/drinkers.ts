@@ -1,4 +1,3 @@
-import DecreasingConsumptionCalculator from '../decreasingconsumptioncalculator';
 import Drinker from './drinker';
 
 export class Drinkers {
@@ -15,10 +14,9 @@ export class Drinkers {
 
   private readonly drinkers: Drinker[] = new Array<Drinker>();
 
-  public add(drinker?: Drinker): Drinkers {
+  public add(drinker: Drinker): Drinkers {
     if (drinker === undefined) {
-      drinker = new Drinker(new DecreasingConsumptionCalculator());
-      drinker.id = this.drinkers.length + 1;
+      throw new ReferenceError('drinker is undefined');
     }
 
     this.drinkers.push(drinker);

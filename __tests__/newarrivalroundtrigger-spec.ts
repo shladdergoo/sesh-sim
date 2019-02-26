@@ -1,14 +1,13 @@
 import 'mocha';
 import 'mocha-sinon';
 import * as chai from 'chai';
-import * as sinon from 'sinon';
 
+import IConsumptionCalculator from '../src/interface/iconsumptioncalculator';
 import IRoundTrigger from '../src/interface/iroundtrigger';
 
 import Drinker from '../src/model/drinker';
 import Drinkers from '../src/model/drinkers';
 import NewArrivalRoundTrigger from '../src/newarrivalroundtrigger';
-import IConsumptionCalculator from '../src/interface/iconsumptioncalculator';
 
 const expect = chai.expect;
 
@@ -31,7 +30,10 @@ describe('NewArrivalRoundTrigger', () => {
     });
 
     it('should return drinker id when new arrival found', () => {
-      const drinkers: Drinkers = new Drinkers().add();
+      const drinker: Drinker = new Drinker(consumptionCalculator);
+      drinker.id = 1;
+      drinker.newArrival = true;
+      const drinkers: Drinkers = new Drinkers().add(drinker);
 
       const result: number = sut.getPurchaser(drinkers);
 
