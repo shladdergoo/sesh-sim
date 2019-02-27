@@ -17,10 +17,10 @@ export class NoDrinkRoundTrigger implements IRoundTrigger {
   }
 
   public getPurchaser(drinkers: Drinkers): number {
-    const drinkLowThreshold: number = 1;
+    const buyRoundLowThreshold: number = 1;
 
     const drinkersWithNoDrink: Drinker[] = drinkers.members.filter(
-      (d) => d.currentDrinkLevel < drinkLowThreshold
+      (d) => d.currentDrinkLevel < buyRoundLowThreshold
     );
     if (drinkersWithNoDrink.length === 0) {
       return 0;
