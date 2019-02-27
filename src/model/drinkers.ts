@@ -29,7 +29,7 @@ export class Drinkers {
   }
 
   public toString(): string {
-    let result: string = 'drinkers: ';
+    let result: string = 'drinkers:\n';
 
     this.drinkers.forEach((d) => {
       result += d.toString();
