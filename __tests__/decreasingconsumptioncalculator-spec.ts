@@ -12,6 +12,18 @@ import { SIGINT } from 'constants';
 const expect = chai.expect;
 
 describe('DecreasingConsumptionCalculator', () => {
+  describe('ctor', () => {
+    it('should throw an exception when rateAdjuster is undefined', () => {
+      expect(() => {
+        let rateAdjuster: IRateAdjuster;
+
+        const sut: IConsumptionCalculator = new DecreasingConsumptionCalculator(
+          rateAdjuster
+        );
+      }).to.throw(ReferenceError);
+    });
+  });
+
   describe('calculate', () => {
     const adjusterMock: IRateAdjuster = <IRateAdjuster>{};
     const sut: IConsumptionCalculator = new DecreasingConsumptionCalculator(
