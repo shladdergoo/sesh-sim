@@ -25,10 +25,10 @@ const consumptionCalculator: IConsumptionCalculator = new ConsumptionCalculator(
 const session: Session = new Session(
   12,
   200,
-  1000,
   arrivalEvaluator,
   roundEvaluator,
-  consumptionCalculator
+  consumptionCalculator,
+  1000
 );
 
 session.on('iteration', (iteration, drinkers) => {

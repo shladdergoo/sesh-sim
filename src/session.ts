@@ -20,10 +20,10 @@ export class Session extends events.EventEmitter {
   public constructor(
     participants: number,
     length: number,
-    pause: number,
     arrivalEvaluator: IArrivalEvaluator,
     roundEvaluator: IRoundEvaluator,
-    consumptionCalculator: IConsumptionCalculator
+    consumptionCalculator: IConsumptionCalculator,
+    pause?: number
   ) {
     super();
 
