@@ -31,7 +31,7 @@ describe('DecreasingConsumptionCalculator', () => {
 
       const result: number = sut.calculate(80, 2);
 
-      expect(result).to.equal(61);
+      expect(result).to.equal(60.2);
     });
   });
 });
