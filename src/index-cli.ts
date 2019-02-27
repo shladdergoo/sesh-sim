@@ -1,5 +1,6 @@
 import IArrivalEvaluator from './interface/iarrivalevaluator';
 import IConsumptionCalculator from './interface/iconsumptioncalculator';
+import IRateAdjuster from './interface/irateadjuster';
 import IRoundEvaluator from './interface/iroundevaluator';
 import IRoundTrigger from './interface/iroundtrigger';
 
@@ -9,13 +10,17 @@ import NoDrinkRoundTrigger from './nodrinkroundtrigger';
 import RoundEvaluator from './roundevaluator';
 import Session from './session';
 import SlightlyRandomArrivalEvaluator from './slightlyrandomarrivalevaluator';
+import SlightlyRandomRateAdjuster from './slightlyrandomrateadjuster';
 
 const arrivalEvaluator: IArrivalEvaluator = new SlightlyRandomArrivalEvaluator();
 const roundTriggers: IRoundTrigger[] = new Array<IRoundTrigger>();
 roundTriggers.push(new NewArrivalRoundTrigger());
 roundTriggers.push(new NoDrinkRoundTrigger());
 const roundEvaluator: IRoundEvaluator = new RoundEvaluator(roundTriggers);
-const consumptionCalculator: IConsumptionCalculator = new ConsumptionCalculator();
+const rateAdjuster: IRateAdjuster = new SlightlyRandomRateAdjuster();
+const consumptionCalculator: IConsumptionCalculator = new ConsumptionCalculator(
+  rateAdjuster
+);
 
 const session: Session = new Session(
   12,

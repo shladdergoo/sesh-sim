@@ -38,7 +38,7 @@ export class Drinker {
       this.drinksBought
     }, drinksConsumed: ${this.drinksConsumed}, drinksReceived: ${
       this.drinksReceived
-    }, currentDrinkLevel: ${this.currentDrinkLevel}`;
+    }, currentDrinkLevel: ${this.currentDrinkLevel.toFixed(2)}`;
   }
 }
 
