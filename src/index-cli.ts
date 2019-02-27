@@ -6,11 +6,11 @@ import IRoundTrigger from './interface/iroundtrigger';
 import ConsumptionCalculator from './decreasingconsumptioncalculator';
 import NewArrivalRoundTrigger from './newarrivalroundtrigger';
 import NoDrinkRoundTrigger from './nodrinkroundtrigger';
-import RegularArrivalEvaluator from './regulararrivalevaluator';
 import RoundEvaluator from './roundevaluator';
 import Session from './session';
+import SlightlyRandomArrivalEvaluator from './slightlyrandomarrivalevaluator';
 
-const arrivalEvaluator: IArrivalEvaluator = new RegularArrivalEvaluator();
+const arrivalEvaluator: IArrivalEvaluator = new SlightlyRandomArrivalEvaluator();
 const roundTriggers: IRoundTrigger[] = new Array<IRoundTrigger>();
 roundTriggers.push(new NewArrivalRoundTrigger());
 roundTriggers.push(new NoDrinkRoundTrigger());
