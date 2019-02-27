@@ -20,7 +20,7 @@ export class SlightlyRandomArrivalEvaluator implements IArrivalEvaluator {
       return false;
     }
 
-    return Math.random() * 10 >= 7;
+    return Math.random() * 10 >= 8;
   }
 }
 
