@@ -20,7 +20,7 @@ const consumptionCalculator: IConsumptionCalculator = new ConsumptionCalculator(
 const session: Session = new Session(
   12,
   200,
-  10,
+  1000,
   arrivalEvaluator,
   roundEvaluator,
   consumptionCalculator

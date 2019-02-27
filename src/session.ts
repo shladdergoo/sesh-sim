@@ -51,7 +51,7 @@ export class Session extends events.EventEmitter {
     events.EventEmitter.call(this);
   }
 
-  public start(): void {
+  public async start(): Promise<void> {
     for (let iteration = 1; iteration <= this.length; iteration++) {
       this.emit('iteration', iteration, this.drinkers);
 
@@ -82,7 +82,7 @@ export class Session extends events.EventEmitter {
         d.drink(iteration);
       });
 
-      sleep(this.pause);
+      await sleep(this.pause);
     }
 
     function sleep(pause: number) {
