@@ -16,7 +16,7 @@ export class DecreasingConsumptionCalculator implements IConsumptionCalculator {
     currentDrinkLevel: number,
     drinkerIteration: number
   ): number {
-    let consumptionRate: number = 20 * this.rateAdjuster.getAdjustment();
+    const consumptionRate: number = 20 * this.rateAdjuster.getAdjustment();
     let consumptionModifier: number = (drinkerIteration - 1) * 0.2;
 
     if (consumptionModifier >= consumptionRate) {
