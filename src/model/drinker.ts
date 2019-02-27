@@ -7,6 +7,7 @@ export class Drinker {
   public newArrival: boolean = true;
   public drinksReceived: number = 0;
   public drinksBought: number = 0;
+  public drinksConsumed: number = 0;
   public currentDrinkLevel: number = 0;
   public arrivalIteration: number = 0;
   public lastRoundIteration: number = 0;
@@ -35,9 +36,9 @@ export class Drinker {
   public toString(): string {
     return `id: ${this.id}, drinksBought: ${
       this.drinksBought
-    }, drinksReceived: ${this.drinksReceived}, currentDrinkLevel: ${
-      this.currentDrinkLevel
-    }`;
+    }, drinksConsumed: ${this.drinksConsumed}, drinksReceived: ${
+      this.drinksReceived
+    }, currentDrinkLevel: ${this.currentDrinkLevel}`;
   }
 }
 

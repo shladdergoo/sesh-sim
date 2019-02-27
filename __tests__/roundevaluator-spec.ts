@@ -135,7 +135,7 @@ describe('RoundEvaluator', () => {
       expect(drinkers.members[1].drinksBought).to.equal(4);
     });
 
-    it('should update drinksReceived for the recipients when round triggered', () => {
+    it('should update drinksReceived for the other recipients when round triggered', () => {
       triggerMock.getPurchaser = sinon.stub().returns(2);
       const triggers: IRoundTrigger[] = new Array<IRoundTrigger>();
       triggers.push(triggerMock);
@@ -156,6 +156,29 @@ describe('RoundEvaluator', () => {
       expect(drinkers.members[2].drinksReceived).to.equal(0);
       expect(drinkers.members[3].drinksReceived).to.equal(1);
       expect(drinkers.members[4].drinksReceived).to.equal(1);
+    });
+
+    it('should update drinksConsumed for all recipients when round triggered', () => {
+      triggerMock.getPurchaser = sinon.stub().returns(2);
+      const triggers: IRoundTrigger[] = new Array<IRoundTrigger>();
+      triggers.push(triggerMock);
+
+      const drinkers: Drinkers = getTestDrinkers(5);
+      drinkers.members[0].currentDrinkLevel = 10;
+      drinkers.members[1].currentDrinkLevel = 0;
+      drinkers.members[2].currentDrinkLevel = 95;
+      drinkers.members[3].currentDrinkLevel = 9;
+      drinkers.members[4].currentDrinkLevel = 5;
+
+      const sut: IRoundEvaluator = new RoundEvaluator(triggers);
+
+      const result: RoundResult = sut.evaluate(drinkers, 99);
+
+      expect(drinkers.members[0].drinksConsumed).to.equal(1);
+      expect(drinkers.members[1].drinksConsumed).to.equal(1);
+      expect(drinkers.members[2].drinksConsumed).to.equal(0);
+      expect(drinkers.members[3].drinksConsumed).to.equal(1);
+      expect(drinkers.members[4].drinksConsumed).to.equal(1);
     });
   });
 });
