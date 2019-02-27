@@ -47,7 +47,12 @@ export class RoundEvaluator implements IRoundEvaluator {
         drinkers.getById(roundPurchaser).drinksBought += purchasedDrinks;
         RoundEvaluator.UpdateReceivedDrinks(drinkers, roundPurchaser);
 
-        return new RoundResult(true, roundPurchaser, purchasedDrinks);
+        return new RoundResult(
+          true,
+          roundPurchaser,
+          purchasedDrinks,
+          roundTrigger.type
+        );
       }
     }
 

@@ -12,6 +12,10 @@ export class NoDrinkRoundTrigger implements IRoundTrigger {
     })[0].id;
   }
 
+  public get type(): string {
+    return 'no drink';
+  }
+
   public getPurchaser(drinkers: Drinkers): number {
     const drinkLowThreshold: number = 1;
 

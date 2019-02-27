@@ -33,13 +33,11 @@ export class Drinker {
   }
 
   public toString(): string {
-    let result: string = `id: ${this.id}, drinksBought: ${
+    return `id: ${this.id}, drinksBought: ${
       this.drinksBought
     }, drinksReceived: ${this.drinksReceived}, currentDrinkLevel: ${
       this.currentDrinkLevel
     }`;
-
-    return result;
   }
 }
 
